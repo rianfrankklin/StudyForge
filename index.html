@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusFlow | Study Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="authPage" class="auth-screen">
+    <div class="auth-art">
+      <div class="brand brand-light"><span class="brand-mark">f</span> focusflow</div>
+      <div class="auth-message"><span class="eyebrow">MAKE EVERY SESSION COUNT</span><h1>Small steps.<br><em>Big progress.</em></h1><p>A calmer way to plan your study, build consistency, and see how far you have come.</p>
+        <div class="art-note"><span class="note-icon">✦</span><div><strong>Your progress, at a glance</strong><small>Plan intentionally. Learn consistently.</small></div></div>
+      </div>
+      <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-dot dot-one"></div><div class="art-dot dot-two"></div>
+    </div>
+    <div class="auth-panel"><div class="auth-form-wrap"><div class="mobile-brand brand"><span class="brand-mark">f</span> focusflow</div><span class="eyebrow">YOUR PERSONAL STUDY SPACE</span><h2>Welcome aboard</h2><p class="muted">Enter your details to open your dashboard.</p>
+      <form id="authForm" class="auth-form">
+        <label for="userName">Your name</label><input id="userName" placeholder="e.g. Rian" required>
+        <label for="userEmail">Email address</label><input id="userEmail" type="email" placeholder="you@example.com" required>
+        <label for="userPassword">Password</label><input id="userPassword" type="password" placeholder="At least 6 characters" minlength="6" required>
+        <button type="submit" class="primary-btn full-btn">Open my dashboard <span>↗</span></button>
+      </form><p class="auth-foot">A local demo · Your records stay in this browser</p>
+    </div></div>
+  </section>
+
+  <div id="appPage" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#overview"><span class="brand-mark">f</span> focusflow</a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="side-nav"><a class="nav-link active" href="#overview"><span>⌂</span> Overview</a><a class="nav-link" href="#add-session"><span>＋</span> Add a session</a><a class="nav-link" href="#weekly"><span>▥</span> Weekly progress</a><a class="nav-link" href="#history"><span>↺</span> Study history</a></nav>
+      <div class="sidebar-bottom"><div class="quote-mark">“</div><p>Consistency is built one focused session at a time.</p><span>YOUR DAILY REMINDER</span><div class="sidebar-line"></div><div class="profile"><div class="avatar" id="userAvatar">S</div><div class="profile-copy"><strong id="sideUserName">Student</strong><small>Study space</small></div><button id="logoutBtn" class="logout-btn" title="Log out" aria-label="Log out">↗</button></div></div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar"><div><div class="breadcrumb">Workspace <span>/</span> Overview</div><h1 id="welcomeText">Good to see you!</h1><p class="muted" id="todayLabel">Here is your learning snapshot for today.</p></div><div class="topbar-right"><div class="date-chip"><span>▦</span><span id="headerDate"></span></div><div class="top-avatar" id="topAvatar">S</div></div></header>
+
+      <section class="welcome-banner"><div class="banner-copy"><span class="banner-kicker">A LITTLE PROGRESS ADDS UP</span><h2>Make today<br>count.</h2><p>Show up for your goals. The results will follow.</p><a href="#add-session" class="banner-link">Log study session <span>→</span></a></div><div class="banner-illustration"><div class="sun-shape"></div><div class="book book-back"></div><div class="book book-mid"></div><div class="book book-front"><span>keep<br>growing.</span></div><div class="sparkle sparkle-a">✦</div><div class="sparkle sparkle-b">✳</div><div class="banner-circle"></div></div></section>
+
+      <section class="stats-grid" aria-label="Study summary">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon lavender">◷</span><span class="stat-caption">TODAY</span></div><div class="stat-number" id="todayTotal">0 hours</div><div class="stat-bottom"><span class="stat-dot lavender-dot"></span>Time invested today</div></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon peach">↗</span><span class="stat-caption">ALL TIME</span></div><div class="stat-number" id="allTotal">0 hours</div><div class="stat-bottom"><span class="stat-dot peach-dot"></span>Your effort adds up</div></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon mint">▤</span><span class="stat-caption">SESSIONS</span></div><div class="stat-number" id="sessionTotal">0</div><div class="stat-bottom"><span class="stat-dot mint-dot"></span>Study sessions logged</div></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel add-panel" id="add-session"><div class="panel-heading"><div><span class="eyebrow">KEEP YOUR MOMENTUM</span><h2>Log a study session</h2><p class="muted">A quick note of what you worked on.</p></div><div class="heading-icon">＋</div></div>
+          <form id="studyForm" class="study-form">
+            <div class="field-group"><label for="subject">Subject</label><input id="subject" placeholder="e.g. Data Structures" required></div>
+            <div class="field-group"><label for="topic">Topic <span>(optional)</span></label><input id="topic" placeholder="e.g. Trees and graphs"></div>
+            <div class="form-row"><div class="field-group"><label for="studyDate">Study date</label><input id="studyDate" type="date" required></div><div class="field-group"><label for="studyHours">Time spent (hours)</label><input id="studyHours" type="number" min="0.25" max="24" step="0.25" placeholder="1.5" required></div></div>
+            <button type="submit" class="primary-btn">Save session <span>→</span></button><p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="panel goal-panel"><div class="panel-heading"><div><span class="eyebrow">ONE DAY AT A TIME</span><h2>Daily goal</h2><p class="muted">Make a little room for learning.</p></div><div class="heading-icon goal-heading-icon">◎</div></div>
+          <div class="goal-progress-wrap"><div class="goal-ring" id="goalRing"><div class="goal-ring-inner"><strong id="goalPercent">0%</strong><span>complete</span></div></div><div class="goal-copy"><strong id="goalText">0 of 4 hours completed today</strong><p id="goalEncouragement">Every focused minute matters.</p></div></div>
+          <div class="goal-setting"><label for="dailyGoal">Daily target</label><div class="goal-input-wrap"><input id="dailyGoal" type="number" min="1" max="16" value="4"><span>hours</span><button id="saveGoalBtn" type="button" class="save-goal-btn">Save</button></div></div>
+          <div class="goal-foot"><span class="goal-foot-icon">✦</span><span id="goalFootText">Keep going — you've got this.</span></div>
+        </section>
+      </div>
+
+      <section class="panel weekly-panel" id="weekly"><div class="panel-heading weekly-heading"><div><span class="eyebrow">YOUR CONSISTENCY</span><h2>This week at a glance</h2><p class="muted">Your study hours over the last 7 days.</p></div><div class="chart-legend"><span></span> Hours studied</div></div><div id="weeklyChart" class="weekly-chart"></div></section>
+
+      <section class="panel history-panel" id="history"><div class="panel-heading history-heading"><div><span class="eyebrow">LOOK HOW FAR YOU'VE COME</span><h2>Recent study sessions</h2><p class="muted">Every session is a step forward.</p></div><div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search sessions..."></div></div><div class="table-wrap"><table><thead><tr><th>SUBJECT / TOPIC</th><th>DATE</th><th>TIME SPENT</th><th></th></tr></thead><tbody id="historyBody"></tbody></table></div><p id="emptyText" class="empty-state"><span class="empty-icon">✎</span><strong>No sessions yet</strong><span>Your study sessions will appear here once you add one.</span></p></section>
+      <footer class="app-footer"><span>Made for your next little win <b>✦</b></span><span>FOCUSFLOW · STUDY WITH INTENTION</span></footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
