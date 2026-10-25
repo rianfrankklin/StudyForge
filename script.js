@@ -1,3 +1,4 @@
+
 // Simple Study Tracker: records and settings are saved in this browser.
 var records = JSON.parse(localStorage.getItem("studyRecords")) || [];
 var savedUser = JSON.parse(localStorage.getItem("studyUser")) || null;
@@ -104,7 +105,7 @@ function updateSummary() {
   document.getElementById("sessionTotal").textContent = records.length;
   document.getElementById("goalText").textContent = formatHours(todayHours) + " of " + dailyGoal + " hours completed today";
   var percent = Math.min(100, (todayHours / dailyGoal) * 100);
-  document.getElementById("goalBar").style.width = percent + "%";
+
   document.getElementById("goalPercent").textContent = Math.round(percent) + "%";
   document.getElementById("goalRing").style.background = "conic-gradient(#7969df " + percent + "%, #f0edfa " + percent + "%)";
   document.getElementById("goalEncouragement").textContent = todayHours >= dailyGoal ? "Amazing! You reached your daily goal." : "Every focused minute matters.";
